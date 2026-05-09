@@ -22,8 +22,11 @@ jobs:
         with:
           flutter-version: '3.24.3'
 
-      - name: Create Android project structure
-        run: flutter create --platforms android .
+      - name: Force create Android project
+        run: |
+          rm -rf android
+          flutter create --platforms android .
+          ls android/    # Confirm folder created
 
       - name: Install dependencies
         run: flutter pub get
